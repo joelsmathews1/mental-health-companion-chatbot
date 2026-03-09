@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+  html, body, #root {
+    height: 100%;
+    margin: 0; padding: 0;
+    background-color: #080a0e;
+    color: #e8ddd0;
+    font-family: 'Source Serif 4', Georgia, serif;
+  }
+
+  ::selection { background-color: rgba(245,158,58,0.25); color: #fcd5a0; }
+
+  ::-webkit-scrollbar       { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(245,158,58,0.2); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(245,158,58,0.4); }
+}
+
+@layer components {
+  .ember-border {
+    border: 1px solid rgba(245,158,58,0.2);
+    box-shadow: 0 0 0 1px rgba(245,158,58,0.05) inset;
+  }
+  .panel-inset {
+    background: rgba(20,25,33,0.8);
+    border: 1px solid rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+  }
+  .sidebar-glow { box-shadow: 4px 0 40px rgba(245,158,58,0.04); }
+}
+
+/* Typing indicator */
+.typing-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(245,158,58,0.6);
+  animation: typingBounce 1.2s ease-in-out infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingBounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30%           { transform: translateY(-6px); opacity: 1; }
+}
+
+/* Message appear */
+@keyframes messageAppear {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.message-appear { animation: messageAppear 0.35s ease-out forwards; }
